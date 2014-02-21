@@ -13,7 +13,7 @@
     model: app.User,
 
     // Save all of the todo items under the `"todos-backbone"` namespace.
-    localStorage: new Backbone.LocalStorage('users-backbone'),
+   
 
     // Filter down the list of all todo items that are finished.
     completed: function() {
