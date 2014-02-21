@@ -1,0 +1,13 @@
+#holder, p, #photoHOlder img{
+	width: 500px
+}
+
+#holder {
+	margin: auto;
+	margin-top: 100px;
+}
+
+p {
+	text-align: right;
+	font-family: futura;
+}
