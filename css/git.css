@@ -9,5 +9,8 @@
 
 p {
 	text-align: right;
-	font-family: futura;
+}
+
+body {
+	font-family: "futura-pt", "futura", sans-serif;
 }
