@@ -2,13 +2,10 @@ var express = require('express');
 var fs = require('fs');
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var app = express();
-var db = require('./lib/db');
-var handler = require('./lib/handler')(db);
-require('./lib/router')(app);
+require('./server/router')(app);
 
 app.configure(function(){
 	app.set('views', __dirname + '/views');
-	app.set('view engine', 'jade');
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
 	app.use(express.methodOverride());
