@@ -2,7 +2,9 @@ var express = require('express');
 var fs = require('fs');
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var app = express();
-require('./server/router')(app);
+var db = require('./server/db');
+var handler = require('./server/handler')(db);
+require('./server/router')(app, handler);
 
 app.configure(function(){
 	app.set('views', __dirname + '/views');
@@ -10,13 +12,9 @@ app.configure(function(){
 	app.use(express.cookieParser());
 	app.use(express.methodOverride());
 	app.use(express.static(__dirname+ '/public'));
+	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 	app.use(app.router);
 	app.enable('trust proxy');
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler());
-    app.locals.pretty = true;
 });
 
 var port = 3033;
