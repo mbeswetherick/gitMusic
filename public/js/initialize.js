@@ -4,6 +4,8 @@ $(document).ready(function(){
 	var userView = new app.UserView();
 	var signupView = new app.SignupView();
 	var aboutView = new app.AboutView();
+	var uploadView = new app.UploadView();
+	var loginView = new app.LoginView();
 	app.router = new Router();
 
 	app.router.on('route:home', function(){
@@ -19,6 +21,15 @@ $(document).ready(function(){
 	app.router.on('route:about', function()	{
 
 		aboutView.render();
+	});
+
+	app.router.on('route:upload', function()	{
+
+		uploadView.render();
+	});
+
+	app.router.on('route:login', function() {
+		loginView.render();
 	});
 
 	Backbone.history.start();

@@ -20,15 +20,36 @@
 
 		</div>
 
-		<div id"shitHolder">
+		<div id="shitHolder">
 
 		</div>
 
 		<script type="text/template" id="signup-template">
 			<div>
 				<form>
+					FullName: <input type="text" name="name"><br>
 					Email: <input type="text" name="email"><br>
 					Password: <input type="text" name="password">
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+		</script> 
+
+		<script type="text/tempalate" id="upload-template">
+			<div>
+				<form>
+					Music File: <input type="text" name="file">
+					<br/>
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+		</script>
+
+		<script type="text/template" id="login-template">
+			<div>
+				<form>
+					Email: <input type="text" name="email" placeholder="Kanye West" required><br>
+					Password: <input type="text" name="password" placeholder="Yeezus" required>
 					<input type="submit" value="Submit">
 				</form>
 			</div>
@@ -49,6 +70,8 @@
 	    <script src="public/js/views/UserView.js"></script>
 	    <script src="public/js/views/SignupView.js"></script>
 	    <script src="public/js/views/AboutView.js"></script>
+	    <script src="public/js/views/UploadView.js"></script>
+	    <script src="public/js/views/LoginView.js"></script>
 	    <link href="public/css/git.css" type="text/css" rel="stylesheet">
 	    <script src="public/js/Router.js"></script>
 	    <script src="public/js/initialize.js"></script>

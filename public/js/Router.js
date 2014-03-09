@@ -4,7 +4,9 @@ var Router = Backbone.Router.extend({
 	routes: {
 		'' : 'home',
 		'about' : 'about',
-		'signup' : 'signup'
+		'signup' : 'signup',
+		'upload' : 'upload',
+		'login' : 'login'
 	}
 });
 
