@@ -1,4 +1,7 @@
-module.exports = function (db) {
+module.exports = function (db, schema) {
+
+// Models
+var User = schema.User;
 
 	return {
 		api: function(req, res) {
@@ -17,7 +20,20 @@ module.exports = function (db) {
 			res.json({User: "fuck dude, no login for you"});
 		},
 		postSignup: function(req, res) {
-			res.json({Signup: "Nice shit you got that signup done"});
-		},
+			var newUser = new User({
+				username: req.body.username,
+				password: req.body.password,
+				firstName: 'tits',
+				lastName: 'mcgee',
+				email: req.body.email
+			});
+			newUser.save(function (err) {
+				if(!err) {
+					res.json({Signup: "user created successfully"});
+				} else {
+					res.json({Signup: "user not created bro"});
+				}
+			});
+		}
 	};
 };

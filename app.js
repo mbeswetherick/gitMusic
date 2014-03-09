@@ -2,8 +2,10 @@ var express = require('express');
 var fs = require('fs');
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var app = express();
-var db = require('./server/db');
-var handler = require('./server/handler')(db);
+var mongoose = require('mongoose');
+var schema = require('./server/schema');
+var db = require('./server/db')(mongoose);
+var handler = require('./server/handler')(db, schema);
 require('./server/router')(app, handler);
 
 app.configure(function(){

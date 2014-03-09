@@ -2,6 +2,40 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
+
+var UserSchema = new Schema({
+    username: {
+    	type: String,
+    	required: true
+    },
+    password: {
+    	type: String,
+    	required: true
+    },
+    firstName: { 
+        type: String
+    },
+    lastName: {
+    	type: String
+    },
+    email: { 
+    	type: String, 
+    	required: true 
+    }
+});
+
+var UserModel = new mongoose.model('UserModel', UserSchema);
+
+
+module.exports = {
+	User: UserModel
+}
+
+
+
+
+
+
 /* Examples
 var Sizes = new Schema({
     size: { type: String, required: true },
@@ -49,5 +83,27 @@ var Product = new Schema({
     variants: [Variants],
     modified: { type: Date, default: Date.now }
 });
+
+// validation
+ 
+Product.path('title').validate(function (v) {
+    console.log("validate title");
+    console.log(v);
+    return v.length > 10 && v.length < 70;
+});
+ 
+Product.path('style').validate(function (v) {
+    console.log("validate style");
+    console.log(v);
+    return v.length < 40;
+}, 'Product style attribute is should be less than 40 characters');
+ 
+Product.path('description').validate(function (v) {
+    console.log("validate description");
+    console.log(v);
+    return v.length > 10;
+}, 'Product description should be more than 10 characters');
+ 
+var ProductModel = mongoose.model('Product', Product);
 
 */
