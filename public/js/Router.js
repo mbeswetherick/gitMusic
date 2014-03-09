@@ -2,7 +2,9 @@ var app = app || {};
 
 var Router = Backbone.Router.extend({
 	routes: {
-		'' : 'home'
+		'' : 'home',
+		'about' : 'about',
+		'signup' : 'signup'
 	}
 });
 
