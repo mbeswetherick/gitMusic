@@ -29,7 +29,10 @@ var User = schema.User;
 				password: req.body.password,
 				firstName: '',
 				lastName: '',
-				email: req.body.email
+				email: req.body.email,
+				followers: {},
+				favorites: {},
+				avatar: ''
 			});
 			newUser.save(function (err) {
 				if(!err) {
@@ -38,6 +41,12 @@ var User = schema.User;
 					res.json({Signup: "user not created bro"});
 				}
 			});
+		},
+		getSong: function(req, res) {
+			res.json({Api: "got song for you"});
+		},
+		getUserSongs: function(req, res) {
+			res.json({Api: "got user songs"});
 		}
 	};
 };

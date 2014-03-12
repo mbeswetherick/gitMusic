@@ -10,4 +10,8 @@ module.exports = function(app, handler, schema) {
 
 	app.post('/api/signup', handler.postSignup);
 
+	app.get('/api/song/:id', handler.getSong);
+
+	app.get('/api/user/songs', handler.getUserSongs);
+
 };

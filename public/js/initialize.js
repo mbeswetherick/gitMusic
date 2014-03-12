@@ -2,7 +2,7 @@ var app = app || {};
 
 $(document).ready(function(){
 	var userView = new app.UserView();
-	var signupView = new app.SignupView();
+	var signupView = new app.SignupView({model: app.UserSignup});
 	var aboutView = new app.AboutView();
 	app.router = new Router();
 

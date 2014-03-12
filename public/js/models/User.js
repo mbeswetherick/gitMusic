@@ -24,7 +24,26 @@
         completed: !this.get('completed')
       });
     }
-
   });
 
- // app.User = new User();
+  var UserSignup = Backbone.Model.extend({
+    defaults: {
+        username: "",
+        password: "",
+        email: ""
+    },
+    url:"api/signup",
+    postlogin: function(name, password, email) {
+      var self = this;
+      console.log(name, password, email);
+      $.post("api/signup", {name: name, password: password, email: email}, function(data) {
+        self.set(data);
+        console.log(data);// data should be in JSON and contain model of this user
+        }, 'json').error(
+      console.log("error posting user")// our custom event
+      );
+    }
+});
+
+app.User = new User();
+app.UserSignup = new UserSignup();
