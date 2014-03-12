@@ -1,35 +1,33 @@
-var mongoose = require('mongoose');
+module.exports = function(mongoose) {
+    var Schema = mongoose.Schema;
 
-var Schema = mongoose.Schema;
-
-
-var UserSchema = new Schema({
-    username: {
-    	type: String,
-    	required: true
-    },
-    password: {
-    	type: String,
-    	required: true
-    },
-    firstName: { 
-        type: String
-    },
-    lastName: {
-    	type: String
-    },
-    email: { 
-    	type: String, 
-    	required: true 
-    }
-});
-
-var UserModel = new mongoose.model('UserModel', UserSchema);
+    var UserModel = mongoose.model('User', new Schema({
+        username: {
+            type: String,
+            required: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        firstName: {
+            type: String
+        },
+        lastName: {
+            type: String
+        },
+        email: {
+            type: String,
+            required: true
+        }
+    }));
+    console.log('made it past the schemas');
 
 
-module.exports = {
-	User: UserModel
-}
+    return {
+        User: UserModel
+    };
+};
 
 
 

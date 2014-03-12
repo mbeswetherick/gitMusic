@@ -1,4 +1,4 @@
-module.exports = function(app, handler) {
+module.exports = function(app, handler, schema) {
 	
 	app.get('/api', handler.api);
 
@@ -12,5 +12,4 @@ module.exports = function(app, handler) {
 
 	app.post('/signup', handler.postSignup);
 
-
-}
+};
