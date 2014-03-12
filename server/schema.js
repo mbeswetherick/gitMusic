@@ -8,7 +8,7 @@ module.exports = function(mongoose) {
         },
         password: {
             type: String,
-            required: true
+            required: true,
         },
         firstName: {
             type: String
@@ -19,27 +19,46 @@ module.exports = function(mongoose) {
         email: {
             type: String,
             required: true
+        },
+        followers: {
+            type: Array
+        },
+        favorites: {
+            type: Array
+        },
+        avatarImg: {
+            type: String
         }
     }));
 
     var SongModel = mongoose.model('Song', new Schema({
-        songName: {
+        name: {
             type: String,
             required: true
         },
-        author: {
-            type: String,
-            required: true
+        authors: {
+            type: Array
         },
-        firstName: {
+        uploadDate: {
+            type: Date
+        },
+        length: {
+            type: Number
+        },
+        downloadCount: {
+            type: Number
+        },
+        comments: {
+            type: Array
+        },
+        tag: {
             type: String
         },
-        lastName: {
-            type: String
+        listenCount: {
+            type: Number
         },
-        email: {
-            type: String,
-            required: true
+        favoriteCount: {
+            type: Number
         }
     }));
     
