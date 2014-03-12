@@ -9,5 +9,10 @@
     "author": "Team Duba",
     "scripts": {
     	"start": "node app.js"
-    }
+    },
+    "repository": {
+    	"type": "git",
+    	"url": "https://github.com/mbeswetherick/gitMusic.git"
+    },
+    "license": "BSD"
 }
