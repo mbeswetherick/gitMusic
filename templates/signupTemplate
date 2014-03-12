@@ -1,0 +1,9 @@
+<script type="text/template" id="signup-template">
+<div>
+	<form>
+		Email: <input type="text" name="email"><br>
+		Password: <input type="text" name="password">
+		<input type="submit" value="Submit">
+	</form>
+</div>
+</script>
