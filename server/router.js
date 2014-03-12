@@ -1,5 +1,13 @@
-var handler = require('./handler');
+module.exports = function(app, handler, schema) {
+	
+	app.get('/api', handler.api);
 
-module.exports = function(app) {
+	app.get('/api/user/:id', handler.getUser);
 
-}
+	app.post('/api/upload', handler.uploadSong);
+
+	app.get('/api/login,', handler.getLogin);
+
+	app.post('/api/signup', handler.postSignup);
+
+};
