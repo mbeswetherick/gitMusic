@@ -43,7 +43,7 @@
       console.log("error posting user")// our custom event
       );
     }
-});
+  });
 
 app.User = new User();
 app.UserSignup = new UserSignup();
