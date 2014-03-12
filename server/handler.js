@@ -36,7 +36,7 @@ var User = schema.User;
 			});
 			newUser.save(function (err) {
 				if(!err) {
-					res.json({Signup: "user created successfully"});
+					res.json(201, {Signup: "user created successfully"});
 				} else {
 					res.json({Signup: "user not created bro"});
 				}

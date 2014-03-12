@@ -21,11 +21,33 @@ module.exports = function(mongoose) {
             required: true
         }
     }));
+
+    var SongModel = mongoose.model('Song', new Schema({
+        username: {
+            type: String,
+            required: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        firstName: {
+            type: String
+        },
+        lastName: {
+            type: String
+        },
+        email: {
+            type: String,
+            required: true
+        }
+    }));
+    
     console.log('made it past the schemas');
 
-
     return {
-        User: UserModel
+        User: UserModel,
+        Song: SongModel
     };
 };
 
