@@ -18,9 +18,6 @@ var User = schema.User;
 		uploadSong: function(req, res) {
 			res.json({Song: "Uploaded!"});
 		},
-		getAbout: function(req, res) {
-			res.json({About: "Dat Shit"});
-		},
 		getLogin: function(req, res) {
 			res.json({User: "fuck dude, no login for you"});
 		},

@@ -2,14 +2,12 @@ module.exports = function(app, handler, schema) {
 	
 	app.get('/api', handler.api);
 
-	app.get('/user/:id', handler.getUser);
+	app.get('/api/user/:id', handler.getUser);
 
-	app.post('/upload', handler.uploadSong);
+	app.post('/api/upload', handler.uploadSong);
 
-	app.get('/about', handler.getAbout);
+	app.get('/api/login,', handler.getLogin);
 
-	app.get('/login,', handler.getLogin);
-
-	app.post('/signup', handler.postSignup);
+	app.post('/api/signup', handler.postSignup);
 
 };

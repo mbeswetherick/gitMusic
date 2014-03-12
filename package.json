@@ -6,5 +6,8 @@
         "express": "latest",
         "mongoose" : "latest"
     },
-    "author": "Team Duba"
+    "author": "Team Duba",
+    "scripts": {
+    	"start": "node app.js"
+    }
 }

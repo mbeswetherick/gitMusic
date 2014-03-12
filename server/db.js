@@ -8,5 +8,7 @@ module.exports = function(mongoose) {
 	db.once('open', function() {
 		console.log('connected to mongodb successfully');
 	});
+
+	return {};
 };
 
