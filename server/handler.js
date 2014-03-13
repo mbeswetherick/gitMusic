@@ -10,6 +10,7 @@ var Song = schema.Song;
 		getUserById: function(req, res) {
 			return User.findById(req.params.id)
 					.populate('songs')
+					.select('username firstName lastName _id favorites followers')
 					.exec(function(err, user) {
 						if(err) {
 							return res.json({Api: "could not find user"});
@@ -71,19 +72,25 @@ var Song = schema.Song;
 							if(!err) {
 								 return res.json(201, {Api: "user created successfully"});
 							} else {
-								return res.json({Api: "user not created bro"});
+								return res.json({Api: newUser + "created"});
 							}
 						});
 					}
 				});
 			}
-		},
-		getSong: function(req, res) {
-			return res.json({Api: "got song for you"});
-		},
-		getUserSongs: function(req, res) {
-			return res.json({Api: "got user songs"});
 		}
+		getSong: function(req, res) {
+			return Song.findById(req.params.id)
+					.populate('songs')
+					.exec(function(err, user) {
+						if(err) {
+							return res.json({Api: "could not find song"});
+						} else {
+							return res.json(user);
+						}
+			});
+		},
+		
 	};
 
 	// Helper methods

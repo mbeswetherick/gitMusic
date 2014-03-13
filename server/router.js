@@ -12,6 +12,5 @@ module.exports = function(app, handler, schema) {
 
 	app.get('/api/song/:id', handler.getSong);
 
-	app.get('/api/user/songs', handler.getUserSongs);
 
 };
