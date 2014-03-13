@@ -55,8 +55,10 @@ var Song = schema.Song;
 				User.findOne({ $or:[ {'username':body.username}, {'email':body.email} ]}, function(err, user) {
 					if(err) { //user with that username exists
 						return next(err);
-					} else if(user) {
-						return res.json({Api: "username or email already in use"});
+					} else if(user.username === body.username) {
+						return res.json({Api: "username already in use"});
+					} else if(user.email === body.email) {
+						return res.json({Api: "email already in use"});
 					} else {
 						var newUser = new User({
 							username: req.body.username,
@@ -78,7 +80,7 @@ var Song = schema.Song;
 					}
 				});
 			}
-		}
+		},
 		getSong: function(req, res) {
 			return Song.findById(req.params.id)
 					.populate('songs')
