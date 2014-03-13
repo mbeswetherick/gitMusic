@@ -20,11 +20,21 @@ app.SignupView = Backbone.View.extend({
     	"click #userSignupButton": "signup"
     },
     signup: function() {
-    	var username = $('#usernameField').val();
-    	var password = $('#passwordField').val();
-    	var email = $('#emailField').val();
-    	console.log(this.model, username, password, email);
-    	// this.model.postLogin(username, password, email);
+    	var tempUsername = $('#usernameField').val();
+    	var tempPassword = $('#passwordField').val();
+    	var tempEmail = $('#emailField').val();
+
+      var newUser = new User({
+        userName: tempUsername,
+        password: tempPassword,
+        email: tempEmail
+      });
+
+      
+
+      newUser.postLogin();
+
+    	//this.model.postLogin(username, password, email);
     },
 
     // Re-renders the titles of the todo item.
@@ -32,7 +42,6 @@ app.SignupView = Backbone.View.extend({
       this.$el.empty();
       $p = $("<p>ass eater</p>");
       var template = _.template($('#signup-template').html());
-      console.log("horse");
       this.$el.html(template);
     }  
 });
