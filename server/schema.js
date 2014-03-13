@@ -1,6 +1,41 @@
 module.exports = function(mongoose) {
     var Schema = mongoose.Schema;
 
+    // Schemas
+
+     var SongModel = mongoose.model('Song', new Schema({
+        name: {
+            type: String,
+            required: true
+        },
+        creator: {
+            type: String,
+            ref: 'User',
+            required: true
+        },
+        uploadDate: {
+            type: String
+        },
+        length: {
+            type: Number
+        },
+        downloadCount: {
+            type: Number
+        },
+        comments: {
+            type: Array
+        },
+        tag: {
+            type: String
+        },
+        listenCount: {
+            type: Number
+        },
+        favoriteCount: {
+            type: Number
+        }
+    }));
+
     var UserModel = mongoose.model('User', new Schema({
         username: {
             type: String,
@@ -28,40 +63,22 @@ module.exports = function(mongoose) {
         },
         avatarImg: {
             type: String
-        }
+        }, 
+        songs: [{type: Schema.Types.ObjectId, ref: 'Song' }]
     }));
 
-    var SongModel = mongoose.model('Song', new Schema({
-        name: {
-            type: String,
-            required: true
-        },
-        authors: {
-            type: Array
-        },
-        uploadDate: {
-            type: Date
-        },
-        length: {
-            type: Number
-        },
-        downloadCount: {
-            type: Number
-        },
-        comments: {
-            type: Array
-        },
-        tag: {
-            type: String
-        },
-        listenCount: {
-            type: Number
-        },
-        favoriteCount: {
-            type: Number
-        }
-    }));
     
+    // Validation
+
+    // Regexs
+    // var emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+    // Validators
+    /* UserSchema.path('email').validate(function (email) {
+       return emailRegex.test(email.text); // Assuming email has a text attribute
+    }, 'The e-mail field cannot be empty.')
+    */
+
     console.log('Schemas are good');
 
     return {

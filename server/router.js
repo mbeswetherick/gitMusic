@@ -2,7 +2,7 @@ module.exports = function(app, handler, schema) {
 	
 	app.get('/api', handler.api);
 
-	app.get('/api/user/:id', handler.getUser);
+	app.get('/api/user/:id', handler.getUserById);
 
 	app.post('/api/upload', handler.uploadSong);
 

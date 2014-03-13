@@ -4,7 +4,8 @@
     "description": "Music Bitch",
     "dependencies": {
         "express": "latest",
-        "mongoose" : "latest"
+        "mongoose" : "latest",
+        "nodemailer": "latest"
     },
     "author": "Team Duba",
     "scripts": {
