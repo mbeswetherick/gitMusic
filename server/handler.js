@@ -45,6 +45,8 @@ var Song = schema.Song;
 			res.json({Api: "fuck dude, no login for you"});
 		},
 		postSignup: function(req, res) {
+			res.header("Access-Control-Allow-Origin", "*");
+  			res.header("Access-Control-Allow-Headers", "X-Requested-With");
 			res.type('application/json');
 			if(req.body) {
 				var body = req.body;
