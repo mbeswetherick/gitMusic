@@ -24,6 +24,7 @@ app.SignupView = Backbone.View.extend({
     	var tempPassword = $('#passwordField').val();
     	var tempEmail = $('#emailField').val();
 
+      //creating a new user should just initialize it
       var newUser = new User({
         userName: tempUsername,
         password: tempPassword,
@@ -32,7 +33,7 @@ app.SignupView = Backbone.View.extend({
 
       
 
-      newUser.postLogin();
+      //newUser.postLogin();
 
     	//this.model.postLogin(username, password, email);
     },

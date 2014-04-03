@@ -10,8 +10,11 @@
 
     // Default attributes ensure that each todo created has `title` and `completed` keys.
     defaults: {
-      name: '',
-      completed: false
+      name: null,
+      image: null,
+      songsCreated: null,
+      songsWorkedOn: null
+
     },
 
     initialize: function(){
